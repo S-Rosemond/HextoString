@@ -1,0 +1,68 @@
+const { app, BrowserWindow, Menu } = require("electron");
+
+let win = null;
+const indexHtml = "./app/index.html";
+
+const isMac = process.platform === "darwin";
+// need [file]exit/ [Edit]cut/copy/paste/[sep]/select all [view]reload/forceReload
+const menu = [
+  {
+    label: "Window",
+    submenu: [
+      { role: "reload" },
+      { role: "forceReload" },
+
+      { type: "separator" },
+      isMac ? { role: "close" } : { role: "quit" },
+    ],
+  },
+  {
+    label: "Edit",
+    submenu: [
+      { role: "cut" },
+      { role: "copy" },
+      { role: "paste" },
+      { type: "separator" },
+      { role: "selectAll" },
+    ],
+  },
+  {
+    label: "View",
+    submenu: [{ role: "togglefullscreen" }, { role: "minimize" }],
+  },
+];
+
+function createMenu() {
+  const mainMenu = Menu.buildFromTemplate(menu);
+  Menu.setApplicationMenu(mainMenu);
+}
+
+function createWindow(obj, loadPath) {
+  const newWindow = new BrowserWindow(
+    obj
+      ? obj
+      : {
+          width: 500,
+          height: 600,
+        }
+  );
+
+  newWindow.loadFile(loadPath ? loadPath : indexHtml);
+
+  return newWindow;
+}
+
+app.on("ready", () => {
+  win = createWindow();
+  createMenu();
+
+  win.on("closed", () => (win = null));
+});
+
+app.on("window-all-closed", () => {
+  if (!isMac) app.quit();
+});
+
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});

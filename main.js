@@ -4,14 +4,14 @@ let win = null;
 const indexHtml = "./app/index.html";
 
 const isMac = process.platform === "darwin";
-// need [file]exit/ [Edit]cut/copy/paste/[sep]/select all [view]reload/forceReload
+// note: remove devtools when in production
 const menu = [
   {
     label: "Window",
     submenu: [
       { role: "reload" },
       { role: "forceReload" },
-
+      { role: "toggleDevTools" },
       { type: "separator" },
       isMac ? { role: "close" } : { role: "quit" },
     ],
@@ -44,6 +44,7 @@ function createWindow(obj, loadPath) {
       : {
           width: 500,
           height: 600,
+          resizable: false,
         }
   );
 
@@ -59,10 +60,10 @@ app.on("ready", () => {
   win.on("closed", () => (win = null));
 });
 
-app.on("window-all-closed", () => {
-  if (!isMac) app.quit();
-});
-
 app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
+
+app.on("window-all-closed", () => {
+  if (!isMac) app.quit();
 });

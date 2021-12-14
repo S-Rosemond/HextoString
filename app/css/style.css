@@ -1,0 +1,57 @@
+:root {
+  --bg: #242526;
+  --bg-text: darkcyan;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.container {
+  width: 400px;
+  margin-top: 70px;
+  padding: 0 20px;
+}
+
+.about {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+}
+
+.btn-auto {
+  width: auto;
+}
+
+.output {
+  margin-top: 40px;
+}
+
+#output-path {
+  font-weight: bold;
+}
+
+.btn-spacing {
+  margin: 20px 0 20px 0;
+}
+
+.btn-gap {
+  margin: 0 5px;
+}
+
+.output-container {
+  background-color: var(--bg-text);
+  border-radius: 0.4rem;
+  padding: 3px;
+}
+
+.output-content {
+  display: grid;
+  grid-template-columns: 1fr 0.25fr;
+}
+
+#input-box {
+  color: white;
+}

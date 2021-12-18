@@ -55,3 +55,10 @@ body {
 #input-box {
   color: white;
 }
+
+#output {
+  display: grid;
+  align-content: center;
+  font-size: x-large;
+  color: ghostwhite;
+}

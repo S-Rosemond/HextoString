@@ -47,7 +47,6 @@ function createWindow(obj, loadPath) {
           height: 600,
           resizable: false,
           webPreferences: {
-            nodeIntegration: true,
             preload: join(__dirname, "./app/js/preload.js"),
           },
         }

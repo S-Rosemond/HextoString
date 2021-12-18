@@ -3,8 +3,8 @@ const outputBox = document.getElementById("output");
 const copyButton = document.getElementById("copy-button");
 const toStringButton = document.getElementById("to-string");
 const toHexButton = document.getElementById("to-hex");
-// const buffer = window.api.buffer;
-console.log(window.api);
+
+// copy is not working as expected, need to fix
 function copyOutput() {
   if (outputBox.value) {
     outputBox.select();
@@ -13,11 +13,7 @@ function copyOutput() {
   return;
 }
 
-function convertHexOrString(from = "utf8", to = "utf8") {
-  return function convertValue(value) {
-    return Buffer.from(value, from).toString(to);
-  };
-}
+const convertHexOrString = window.api.convertHexOrString;
 
 function outputValue(func) {
   outputBox.innerText = func(inputBox.value);

@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require("electron");
+const { join } = require("path");
 
 let win = null;
 const indexHtml = "./app/index.html";
@@ -45,6 +46,10 @@ function createWindow(obj, loadPath) {
           width: 500,
           height: 600,
           resizable: false,
+          webPreferences: {
+            nodeIntegration: true,
+            preload: join(__dirname, "./app/js/preload.js"),
+          },
         }
   );
 

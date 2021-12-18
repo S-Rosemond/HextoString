@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
     <link rel='stylesheet' href='css/all.min.css' />
     <link rel='stylesheet' href='css/materialize.min.css' />
     <link rel='stylesheet' href='css/style.css'/>
@@ -20,14 +21,14 @@
         <input type="text" name="" id="input-box" placeholder="Input hex or string">
 
         <div class="btn-spacing">
-            <button type="button" class="btn btn-auto btn-gap">String</button>
-            <button type="button" class="btn btn-auto btn-gap">Hex</button>
+            <button type="button" id="to-string" class="btn btn-auto btn-gap">String</button>
+            <button type="button" id="to-hex" class="btn btn-auto btn-gap">Hex</button>
         </div>
         
         <div class='output-container'>
             <div class='output-content'>
                 <span id="output"></span>
-            <button class="btn btn-auto">Copy</button>
+            <button id="copy-button" class="btn btn-auto">Copy</button>
             </div>
             
         </div>
@@ -35,6 +36,6 @@
     </form>
 </div>
     
-    
+    <script src="js/render.js"></script>
 </body>
 </html>

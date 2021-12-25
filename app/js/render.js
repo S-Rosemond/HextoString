@@ -1,15 +1,23 @@
 const inputBox = document.getElementById("input-box");
 const outputBox = document.getElementById("output");
 const copyButton = document.getElementById("copy-button");
+const pasteButton = document.getElementById("paste-button");
 const toStringButton = document.getElementById("to-string");
 const toHexButton = document.getElementById("to-hex");
 
 // copy is not working as expected, need to fix
-function copyOutput() {
-  if (outputBox.value) {
-    outputBox.select();
-    navigator.clipboard.writeText(outputBox.value);
+async function copyOutput() {
+  if (outputBox.innerText) {
+    await navigator.clipboard.writeText(outputBox.innerText);
   }
+
+  return;
+}
+
+async function pasteInput() {
+  const clipboard = await navigator.clipboard.readText();
+  inputBox.value = clipboard;
+  console.log(inputBox.value, clipboard);
   return;
 }
 
@@ -23,6 +31,7 @@ function outputValue(func) {
 const stringToHex = convertHexOrString(undefined, "hex");
 const hexToString = convertHexOrString("hex");
 
-copyButton.addEventListener("click", copyOutput);
+pasteButton.addEventListener("click", () => pasteInput());
+copyButton.addEventListener("click", () => copyOutput());
 toStringButton.addEventListener("click", () => outputValue(hexToString));
 toHexButton.addEventListener("click", () => outputValue(stringToHex));

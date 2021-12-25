@@ -1,10 +1,16 @@
 :root {
   --bg: #242526;
   --bg-text: darkcyan;
+  --output-border-radius: 0.4rem;
+  --ghost-white: ghostwhite;
 }
 
 body {
   background-color: var(--bg);
+}
+
+.ghost-white {
+  color: var(--ghost-white);
 }
 
 .container {
@@ -43,8 +49,7 @@ body {
 
 .output-container {
   background-color: var(--bg-text);
-  border-radius: 0.4rem;
-  padding: 3px;
+  border-radius: var(--output-border-radius);
 }
 
 .output-content {
@@ -60,5 +65,15 @@ body {
   display: grid;
   align-content: center;
   font-size: x-large;
-  color: ghostwhite;
+  overflow: hidden;
+}
+
+#copy-button {
+  height: 41px;
+  border-radius: var(--output-border-radius);
+}
+
+#paste-button {
+  position: absolute;
+  right: 67px;
 }

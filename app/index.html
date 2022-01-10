@@ -17,9 +17,9 @@
 <div class="container center-align"> 
     
 
-    <form >
+    <form id='form'>
         <div>
-            <input type="text" name="" id="input-box" placeholder="Input hex or string">
+            <textarea type="text" name="" id="input-box" placeholder="Input hex or string" rows='20' cols='300' > </textarea>
             <button type='button' id="paste-button" class='btn btn-auto ghost-white'>Paste</button>
         </div>
         
@@ -27,6 +27,7 @@
         <div class="btn-spacing">
             <button type="button" id="to-string" class="btn btn-auto btn-gap ghost-white">String</button>
             <button type="button" id="to-hex" class="btn btn-auto btn-gap ghost-white">Hex</button>
+            <button type='button' id="clear-button" class="btn btn-gap btn-auto ghost-white">Clear</button>
         </div>
         
         <div class='output-container'>
@@ -36,7 +37,7 @@
             </div>
             
         </div>
-
+            
     </form>
 </div>
     

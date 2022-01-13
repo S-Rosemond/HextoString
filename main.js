@@ -39,7 +39,7 @@ function createMenu() {
 }
 
 function createWindow(obj, loadPath) {
-  const newWindow = new BrowserWindow(
+  win = new BrowserWindow(
     obj
       ? obj
       : {
@@ -52,9 +52,7 @@ function createWindow(obj, loadPath) {
         }
   );
 
-  newWindow.loadFile(loadPath ? loadPath : indexHtml);
-
-  return newWindow;
+  win.loadFile(loadPath ? loadPath : indexHtml);
 }
 
 app.on("ready", () => {

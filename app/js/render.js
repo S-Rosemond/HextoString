@@ -1,3 +1,5 @@
+"use strict";
+
 const inputBox = document.getElementById("input-box");
 const outputBox = document.getElementById("output");
 const copyButton = document.getElementById("copy-button");
@@ -5,7 +7,7 @@ const pasteButton = document.getElementById("paste-button");
 const toStringButton = document.getElementById("to-string");
 const toHexButton = document.getElementById("to-hex");
 const clearButton = document.getElementById("clear-button");
-const formatter = document.getElementById("form");
+const form = document.getElementById("form");
 
 function clearAll() {
   outputBox.innerText = "";

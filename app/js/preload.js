@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require("electron");
+const { contextBridge } = require("electron");
 
 function convertHexOrString(from = "utf8", to = "utf8") {
   return function convertValue(value) {
@@ -7,7 +7,6 @@ function convertHexOrString(from = "utf8", to = "utf8") {
 }
 // Buffer can't be used/passed/called in main renderer process
 const API = {
-  ipc: ipcRenderer,
   convertHexOrString,
 };
 

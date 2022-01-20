@@ -56,7 +56,7 @@ function createWindow(obj, loadPath) {
 }
 
 app.on("ready", () => {
-  win = createWindow();
+  createWindow();
   createMenu();
 
   win.on("closed", () => (win = null));

@@ -5,7 +5,7 @@ function convertHexOrString(from = "utf8", to = "utf8") {
     return Buffer.from(value, from).toString(to);
   };
 }
-// Buffer can't be used/passed/called in main renderer process
+
 const API = {
   convertHexOrString,
 };

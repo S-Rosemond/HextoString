@@ -5,14 +5,13 @@ let win = null;
 const indexHtml = "./app/index.html";
 
 const isMac = process.platform === "darwin";
-// note: remove devtools when in production
+
 const menu = [
   {
     label: "Window",
     submenu: [
       { role: "reload" },
       { role: "forceReload" },
-      { role: "toggleDevTools" },
       { type: "separator" },
       isMac ? { role: "close" } : { role: "quit" },
     ],
@@ -29,7 +28,7 @@ const menu = [
   },
   {
     label: "View",
-    submenu: [{ role: "togglefullscreen" }, { role: "minimize" }],
+    submenu: [{ role: "minimize" }],
   },
 ];
 
@@ -46,6 +45,7 @@ function createWindow(obj, loadPath) {
           width: 500,
           height: 600,
           resizable: false,
+          show: false,
           webPreferences: {
             preload: join(__dirname, "./app/js/preload.js"),
           },
@@ -53,6 +53,7 @@ function createWindow(obj, loadPath) {
   );
 
   win.loadFile(loadPath ? loadPath : indexHtml);
+  win.on("ready-to-show", win.show);
 }
 
 app.on("ready", () => {

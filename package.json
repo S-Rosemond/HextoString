@@ -1,16 +1,34 @@
 {
-  "name": "Hextostring",
+  "name": "Hex-String-Converter",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "Hex-String-Converter",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "Hex-String-Uninstaller",
+      "allowToChangeInstallationDirectory": false
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^16.0.4"
+    "electron": "^16.0.4",
+    "electron-builder": "^22.14.5"
   }
 }
